@@ -7,10 +7,10 @@
 ########## Variables
 
 # dotfiles directory
-dir=$CONFIGS
+dir=$(pwd)
 
 # old dotfiles backup directory
-olddir=$CONFIGS/backup
+olddir=~/.backup
 
 # list of files/folders to symlink in homedir
 files="zshrc gitconfig inputrc vimrc"
