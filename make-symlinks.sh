@@ -13,7 +13,7 @@ dir=$CONFIGS
 olddir=$CONFIGS/backup
 
 # list of files/folders to symlink in homedir
-files="bashrc gitconfig functions"
+files="zshrc gitconfig inputrc vimrc"
 
 ##########
 
