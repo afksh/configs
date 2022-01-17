@@ -1,2 +1,5 @@
 # configs
-configuration files for environment setup
+Repo for fast environment setup on UNIX Shell based interfaces (macOS, Linux, etc.)
+To use, paste the following line into your shell and press ENTER:
+
+`git clone https://github.com/anotherfaizkhan/configs; cd configs; ./make-symlinks.sh`
