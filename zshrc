@@ -117,6 +117,10 @@ export INTERVIEW_PREP=~/Developer/Career
 export CONFIGS=~/Developer/configs
 
 # Functions
+size() {
+    du -sh $1
+}
+
 cheat() {
     curl cheat.sh/$1
 }
