@@ -13,7 +13,7 @@ dir=$(pwd)
 olddir=~/.backup
 
 # list of files/folders to symlink in homedir
-files="zshrc gitconfig inputrc vimrc"
+files="zshrc gitconfig inputrc vimrc git-commit-template"
 
 ##########
 
