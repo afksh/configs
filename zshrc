@@ -1,3 +1,5 @@
+# Environment Setup
+eval $(thefuck --alias)
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=/Users/faiz/Library/Python/3.8/bin:$PATH
@@ -100,15 +102,15 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+
 ######################################################
 #################### USER ZSHRC ######################
 ######################################################
 
 # Aliases
-
-alias l="exa --long --all --git --header --color-scale --sort modified --time-style iso --extended --time accessed --group --group-directories-first --links"
 alias pods="arch -x86_64 pod install"
 alias z="vi ~/.zshrc"
+alias l="exa --long --all --git --header --color-scale --sort modified --time-style iso --extended --time accessed --group --group-directories-first --links"
 
 # Environment Variables
 export APACHE_SITE_DOCS=/Library/WebServer
@@ -116,6 +118,8 @@ export APACHE_SERVER_CONFIG=/private/etc/apache2
 export INTERVIEW_PREP=~/Developer/Career
 export CONFIGS=~/Developer/configs
 export BOILERPLATE=~/Developer/boilerplate
+
+
 # Functions
 size() {
     du -sh $1
@@ -125,51 +129,30 @@ cheat() {
     curl cheat.sh/$1
 }
 
-f () {
-    if [ "$#" -ne 0 ]
-    then
-        line=1
-        if [  "$#" -eq 2 ]
-        then
-            line=$2
-            if [ $line -lt 1 ]
-            then
-                line=1
-            fi
-        fi
-        paths=(`ag -i -g $1`)
-        len=${#paths[@]}
-        if [ $len -eq 0 ]
-        then
-            echo "No results found."
-            return 1
-        elif [ $len -eq 1 ]
-        then
-            vi +$line ${paths[0]}
-        else
-            echo "Files found:"
-            echo
-            for ((i=0;i<$len;i++))
-            do
-                echo "$((i + 1)): ${paths[$i]}"
-            done
-            echo
-            choice=-1
-            while [[ ! $choice || $choice = *[^0-9]* ]]; do
-                echo "Which file would you like to edit?"
-                if [ $len -lt 10 ]
-                then
-                    read -s -n 1 choice
-                else
-                    read choice
-                fi
-            done
-            vi +$line ${paths[$((choice - 1))]}
-        fi
-    else
-        echo "Please provide a search string or regex to recursively search for and open files in vim."
-    fi
+# TODO: Figure out passing in custom message
+send() {
+    git add -A && git commit -m "Send it" && git push
 }
 
-# Environment Setup
-eval $(thefuck --alias)
+### Added by Zinit's installer
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
+fi
+
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+
+### End of Zinit's installer chunk
