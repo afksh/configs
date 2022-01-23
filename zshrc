@@ -115,7 +115,7 @@ export APACHE_SITE_DOCS=/Library/WebServer
 export APACHE_SERVER_CONFIG=/private/etc/apache2
 export INTERVIEW_PREP=~/Developer/Career
 export CONFIGS=~/Developer/configs
-
+export BOILERPLATE=~/Developer/boilerplate
 # Functions
 size() {
     du -sh $1
