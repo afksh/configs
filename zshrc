@@ -113,9 +113,9 @@ alias z="vi ~/.zshrc"
 alias ls="exa --long --all --git --header --color-scale --sort name --time-style iso --time accessed --group --group-directories-first"
 
 # Environment Variables
-export APACHE_SITE_DOCS=/Library/WebServer
-export APACHE_SERVER_CONFIG=/private/etc/apache2
-export INTERVIEW_PREP=~/Developer/Career
+export SITE=/Library/WebServer/Documents
+export SERVER_CONFIG=/private/etc/apache2
+export INTERVIEW=~/Developer/Career
 export CONFIGS=~/Developer/configs
 export BOILERPLATE=~/Developer/boilerplate
 
