@@ -110,7 +110,7 @@ source $ZSH/oh-my-zsh.sh
 # Aliases
 alias pods="arch -x86_64 pod install"
 alias z="vi ~/.zshrc"
-alias l="exa --long --all --git --header --color-scale --sort modified --time-style iso --extended --time accessed --group --group-directories-first --links"
+alias ls="exa --long --all --git --header --color-scale --sort name --time-style iso --time accessed --group --group-directories-first"
 
 # Environment Variables
 export APACHE_SITE_DOCS=/Library/WebServer
