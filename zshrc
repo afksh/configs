@@ -93,15 +93,6 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 
 ######################################################
 #################### USER ZSHRC ######################
@@ -111,7 +102,7 @@ source $ZSH/oh-my-zsh.sh
 alias pods="arch -x86_64 pod install"
 alias z="vi ~/.zshrc"
 alias ls="exa --long --all --git --header --color-scale --sort name --time-style iso --time accessed --group --group-directories-first"
-
+alias f="fuck"
 # Environment Variables
 export SITE=/Library/WebServer/Documents
 export SERVER_CONFIG=/private/etc/apache2
