@@ -109,7 +109,7 @@ export SERVER_CONFIG=/private/etc/apache2
 export INTERVIEW=~/Developer/Career
 export CONFIGS=~/Developer/configs
 export BOILERPLATE=~/Developer/boilerplate
-
+export CDPATH=:$HOME
 
 # Functions
 size() {
