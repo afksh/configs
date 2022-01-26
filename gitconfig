@@ -10,3 +10,5 @@
 	editor = vim --nofork
 [commit]
 	template = /Users/faiz/.git-commit-template
+[init]
+	defaultBranch = master
