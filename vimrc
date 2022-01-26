@@ -14,7 +14,12 @@ set pastetoggle=<F2>
 
 " Search
 set ic
-" set colorcolumn=79
+
+" Highlight 80 character limit
+"set colorcolumn=80
+let &colorcolumn = join(range(81,999), ',')
+highlight ColorColumn ctermbg=darkgrey
+
 " Keep search results at the center of screen
 nnoremap n nzz
 nnoremap N Nzz
