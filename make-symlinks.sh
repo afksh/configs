@@ -7,13 +7,13 @@
 ########## Variables
 
 # dotfiles directory
-dir=$(pwd)
+dir=$(pwd)/config-files
 
 # old dotfiles backup directory
 olddir=~/.backup
 
 # list of files/folders to symlink in homedir
-files="zshrc gitconfig inputrc vimrc git-commit-template"
+files="./config-files"
 
 ##########
 
@@ -23,7 +23,7 @@ mkdir -p $olddir
 echo "done"
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
-for file in $files; do
+for file in $(ls $files); do
     echo "Moving any existing dotfiles from ~ to $olddir"
     mv ~/.$file $olddir
     echo "Creating symlink to $file in home directory."
