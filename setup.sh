@@ -4,6 +4,15 @@
 # This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
 ############################
 
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Install exa
+brew install exa
+
+# Install Zinit
+sh -c "$(curl -fsSL https://git.io/zinit-install)"
+
+
 ########## Variables
 
 # dotfiles directory
