@@ -5,9 +5,7 @@
 ############################
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-# Install exa
-brew install exa
+echo "make sure to add homebrew path to PATH variable"
 
 # Install Zinit
 sh -c "$(curl -fsSL https://git.io/zinit-install)"
@@ -38,3 +36,6 @@ for file in $(ls $files); do
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
 done
+
+sudo chsh -s /bin/zsh
+/bin/zsh
