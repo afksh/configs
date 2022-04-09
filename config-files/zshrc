@@ -48,6 +48,7 @@ alias ls="exa --long --all --git --header --color-scale --sort name --time-style
 alias l="ls"
 alias f="fuck"
 alias dev="cd ~/Developer"
+alias bumi="ssh faiz@bumicreative.com"
 
 # Environment Variables
 export SITE=/Library/WebServer/Documents
