@@ -4,11 +4,10 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=/Users/faiz/Library/Python/3.8/bin:$PATH
-
+export PATH=/Users/afk/Library/Python/3.8/bin:$PATH
+export PATH=/Users/afk/Developer/scripts:$PATH
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
@@ -40,24 +39,28 @@ zinit light-mode for \
 # Set powerlevel10k theme
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 
-# Aliases
+#Aliases
 eval $(thefuck --alias)
 alias pods="arch -x86_64 pod install"
-alias z="vi ~/.zshrc"
+alias z="vi ~/.zshrc;zsh"
 alias ls="exa --long --all --git --header --color-scale --sort name --time-style iso --time accessed --group --group-directories-first"
 alias l="ls"
 alias f="fuck"
 alias dev="cd ~/Developer"
 alias bumi="ssh faiz@bumicreative.com"
+alias brackets="open . -a Brackets.app"
+alias chrome="open . -a Google\ Chrome.app"
+alias kaai="cd ~/Developer/projects/kaaikani"
+alias dirs="dirs -v -l"
 
 # Environment Variables
 export SITE=/Library/WebServer/Documents
 export SERVER_CONFIG=/private/etc/apache2
 export INTERVIEW=~/Developer/Career
 export CONFIGS=~/Developer/configs
-export BOILERPLATE=~/Developer/boilerplate
+export BOILERPLATE=https://github.com/anotherfaizkhan/boilerplate
 export CDPATH=:$HOME
-
+export FK=/Volumes/myfiles.fastmail.com/fk.io
 # Functions
 size() {
     du -sh $1
@@ -69,8 +72,17 @@ cheat() {
 
 # TODO: Figure out passing in custom message
 send() {
-    git add -A && git commit -m "Send it" && git push
+    echo "Commit message: "
+    read msg
+    git add -A && git commit -m $msg && git push
 }
+
+# Case insensitive tab completion
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+autoload -Uz compinit && compinit
+
+# Other scripts
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
