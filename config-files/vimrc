@@ -11,6 +11,7 @@ set showmatch
 set autoindent
 set title
 set pastetoggle=<F2>
+set signcolumn=yes
 
 " Search
 set ic

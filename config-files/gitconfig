@@ -1,14 +1,18 @@
 [user]
-	name = anotherfaizkhan
-	email = 51038016+anotherfaizkhan@users.noreply.github.com
+	name = AFK
+	email = afk@afk.sh
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
 [core]
-	editor = vim --nofork
+	editor = cursor --wait
 [commit]
 	template = /Users/afk/.git-commit-template
 [init]
-	defaultBranch = master
+	defaultbranch = main
+[pull]
+	rebase = true
+[http]
+	postBuffer = 524288000
