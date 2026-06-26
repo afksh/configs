@@ -74,9 +74,14 @@ if confirm "Proceed with symlink setup?"; then
             echo "Skipping $file (not a dotfile)."
             continue
         fi
+        target=~/."$file"
+        if [ -L "$target" ] && [ "$(readlink "$target")" = "$filepath" ]; then
+            echo "Symlink for $file already correct, skipping."
+            continue
+        fi
         echo "Moving ~/.$file to $olddir and creating symlink."
-        mv ~/."$file" "$olddir" 2>/dev/null || true
-        ln -sf "$filepath" ~/."$file"
+        mv "$target" "$olddir" 2>/dev/null || true
+        ln -sf "$filepath" "$target"
     done
     echo "Symlinks created."
 else
@@ -180,7 +185,9 @@ while [ $attempt -lt $MAX_ATTEMPTS ]; do
         echo "This will add the following cron job:"
         echo "  $CRON_JOB"
         echo ""
-        if confirm "Add this cron job?"; then
+        if crontab -l 2>/dev/null | grep -qF "$SYNC_SCRIPT"; then
+            echo "Cron job already exists, skipping."
+        elif confirm "Add this cron job?"; then
             (crontab -l 2>/dev/null || true; echo "$CRON_JOB") | crontab -
             echo "Cron job added."
         else

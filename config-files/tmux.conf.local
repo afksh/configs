@@ -389,8 +389,10 @@ bind m run "cut -c3- '#{TMUX_CONF}' | sh -s _toggle_mouse" \; display 'mouse #{?
 bind t new-window
 bind c choose-tree -Zw
 bind w if-shell '[ #{window_panes} -gt 1 ]' kill-pane kill-window
-bind -n M-S-Right split-window -h
-bind -n M-S-Down split-window -v
+bind -n M-S-Right split-window -h -c "#{pane_current_path}"
+bind -n M-S-Left split-window -h -b -c "#{pane_current_path}"
+bind -n M-S-Down split-window -v -c "#{pane_current_path}"
+bind -n M-S-Up split-window -v -b -c "#{pane_current_path}"
 
 # pane navigation
 bind -n M-C-Left select-pane -L
