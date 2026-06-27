@@ -395,6 +395,10 @@ bind -n M-S-Down split-window -v -c "#{pane_current_path}"
 bind -n M-S-Up split-window -v -b -c "#{pane_current_path}"
 
 # pane navigation
+unbind h
+unbind j
+unbind k
+unbind l
 bind -n M-C-Left select-pane -L
 bind -n M-C-Right select-pane -R
 bind -n M-C-Up select-pane -U
@@ -503,3 +507,5 @@ tmux_conf_uninstall_plugins_on_reload=true
 # "$@"
 # # /!\ do not remove the previous line
 # #     do not write below this line
+
+set -g repeat-time 500
