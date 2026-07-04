@@ -89,6 +89,8 @@ export CONFIGS=~/Developer/configs
 export BOILERPLATE=https://github.com/anotherfaizkhan/boilerplate
 export CDPATH=:$HOME
 export FK=/Volumes/myfiles.fastmail.com/fk.io
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export BAT_THEME="gruvbox-dark"
 # Functions
 size() {
     du -sh $1
