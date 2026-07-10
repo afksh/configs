@@ -118,10 +118,8 @@ bindkey '\e[D' backward-char
 # Shift+Tab cycles backward through completion menu
 bindkey '^[[Z' reverse-menu-complete
 
-# TEMP DEBUG: log the raw bytes of any unbound key sequence that reaches zle
-# (this is what silently beeps with no other output) - remove once done
-_debug_undefined_key() {
-  print -r -- "$(date '+%H:%M:%S') UNDEFINED-KEY bytes=${(V)KEYS}" >> ~/.zsh-undefined-key.log
-  print -n '\a'
-}
-zle -N undefined-key _debug_undefined_key
+# Force emacs keybindings - without this, zsh silently defaults to vi mode
+# because $EDITOR=nvim contains "vi", which routes backspace through
+# vi-backward-delete-char (extra insert-boundary checks, prone to
+# multiple beeps) instead of the plain backward-delete-char
+bindkey -e
