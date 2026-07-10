@@ -367,6 +367,9 @@ tmux_conf_urlscan_options="--compact --dedupe"
 # start with mouse mode enabled
 set -g mouse on
 
+# copy mouse-drag selection straight to the macOS clipboard on release
+bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "pbcopy"
+
 # force Vi mode
 #   really you should export VISUAL or EDITOR environment variable, see manual
 #set -g status-keys vi

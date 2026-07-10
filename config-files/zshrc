@@ -38,17 +38,6 @@ zinit light-mode for \
 # Set powerlevel10k theme
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 
-# Autocomplete (must load before compinit and zsh-autosuggestions)
-zstyle ':autocomplete:*' async false
-zstyle -e ':autocomplete:*:*' list-lines 'reply=( 20 )'
-zstyle -e ':autocomplete:*:*' menu-lines 'reply=( 8 )'
-zstyle -e ':autocomplete:history-search:*' list-lines 'reply=( 20 )'
-zstyle ':autocomplete:*' widget-style menu-select
-zstyle ':autocomplete:*' min-input 2
-zmodload zsh/complist
-bindkey -M menuselect '\r' .accept-line
-zinit light marlonrichert/zsh-autocomplete
-
 # Options
 setopt AUTO_CD
 setopt HIST_IGNORE_DUPS
@@ -119,8 +108,7 @@ send() {
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
 
-# Plugins (syntax-highlighting must be last)
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# Plugins
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Keep left/right arrows as cursor movement, not history navigation
