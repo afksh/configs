@@ -370,6 +370,10 @@ set -g mouse on
 # copy mouse-drag selection straight to the macOS clipboard on release
 bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "pbcopy"
 
+# bell debugging: auto-capture raw pane output (timestamped) on focus, so
+# bell (^G) events can be grepped later with surrounding context
+set-hook -g pane-focus-in 'if -F "#{pane_pipe}" "" "run-shell \"~/.tmux-bell-pipe.sh #{session_name} #{window_index} #{pane_index} #{pane_id}\""'
+
 # force Vi mode
 #   really you should export VISUAL or EDITOR environment variable, see manual
 #set -g status-keys vi

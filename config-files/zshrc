@@ -114,3 +114,14 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Keep left/right arrows as cursor movement, not history navigation
 bindkey '\e[C' forward-char
 bindkey '\e[D' backward-char
+
+# Shift+Tab cycles backward through completion menu
+bindkey '^[[Z' reverse-menu-complete
+
+# TEMP DEBUG: log the raw bytes of any unbound key sequence that reaches zle
+# (this is what silently beeps with no other output) - remove once done
+_debug_undefined_key() {
+  print -r -- "$(date '+%H:%M:%S') UNDEFINED-KEY bytes=${(V)KEYS}" >> ~/.zsh-undefined-key.log
+  print -n '\a'
+}
+zle -N undefined-key _debug_undefined_key
