@@ -16,5 +16,8 @@ vim.opt.showmatch = true
 vim.opt.title = true
 vim.opt.scrolloff = 8
 
+-- Use Treesitter for all syntax highlighting, disable Vim defaults
+vim.opt.syntax = "OFF"
+
 -- Clipboard (sync with macOS clipboard)
 vim.opt.clipboard = "unnamedplus"
