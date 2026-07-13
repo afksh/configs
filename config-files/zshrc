@@ -69,6 +69,7 @@ alias stat="stat -x"
 alias v="vi ~/.vimrc"
 alias gcam="git add -A && git commit -m "
 alias cc="claude"
+alias top="btop"
 # Environment Variables
 export EDITOR=nvim
 export SITE=/Library/WebServer/Documents
