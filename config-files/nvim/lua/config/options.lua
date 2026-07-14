@@ -15,14 +15,10 @@ vim.opt.tabstop = 4
 -- Visual
 vim.opt.encoding = "utf-8"
 vim.opt.termguicolors = true
-vim.opt.cursorcolumn = true
 vim.opt.colorcolumn = "80"
 vim.opt.showmatch = true
 vim.opt.title = true
 vim.opt.scrolloff = 8
-
--- Use Treesitter for all syntax highlighting, disable Vim defaults
-vim.opt.syntax = "OFF"
 
 -- Clipboard (sync with macOS clipboard)
 vim.opt.clipboard = "unnamedplus"
